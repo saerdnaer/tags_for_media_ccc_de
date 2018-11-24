@@ -27,7 +27,7 @@ TECHNOLOGY = "technology"
 ENGINEERING = "engineering"
 SECURITY = "security"
 ENTERTAINMENT = "entertainment"
-BIO = "bio"  # hacking plants, people, genes ...
+BIO = "biohacking"  # hacking plants, people, genes ...
 SCIENCE = "science"
 BIOMETRICS = "biometrics"
 AUTOMOTIVE = "automotive"   # automotive
@@ -39,7 +39,7 @@ HISTORY = "history"  # old computers, events happening loong time ago....
 ACTIVISM = "activism"
 HARDWARE = "hardware"  # generic hardware focus
 SOFTWARE = "software"  # generic software focus
-CONSOLE = "console"
+CONSOLE = "video console"
 AI = "ai"
 NETWORK = "network"
 WIRELESS = "wireless"  # WIFI BLUETOOTH, ...
@@ -49,7 +49,6 @@ FOOD = "food"   # Food hacking
 PRIVACY = "privacy"
 SOLUTION = "solution"  # All those proposals that could solve a problem of mankind
 MAKING = "making"  # Maker stuff
-TOR = "tor"
 ROBOTICS = "robotics"
 ELECTRONICS = "electronics"
 BIGBROTHER = "bigbrother"  # all big-brother style state actions, not only surveillance
@@ -60,8 +59,7 @@ RFID = "rfid"  # RFID/NFC/Mifare
 ART = "art"
 FORENSIC = "forensic"
 BANKING = "banking"
-MOBILE = "mobile"
-ASSEMBLER = "assembler"
+MOBILE = "mobile" # ???
 SOCIETY = "society"
 AVIATION = "aviation"
 CLOUD = "cloud"
@@ -77,11 +75,11 @@ KERNEL = "kernel"  # OS kernel stuff
 ANARCHY = "anarchy"
 TRAVEL = "travel"
 FUZZING = "fuzzing"
-ASAN = "asan"
-AFL = "afl"
-LIBFUZZER = "libfuzzer"
+
+
+API = "api"
 IFG = "ifg"
-LORA = "lora"
+LORA = "LPWAN"
 VM = "vm"  # virtual machines
 SCADA = "scada"
 APPLE = "apple"
@@ -110,10 +108,7 @@ JAVASCRIPT = "javascript"
 PERL = "perl"
 OPENSTREETMAP = "openstreetmap"
 PODCAST = "podcast"
-WEBSERVER = "webserver"
-HONEYPOT = "honeypot"
 TESTING = "testing"
-IMAGEMAGICK = "imagemagick"
 MESSENGER = "messenger"
 FREIFUNK = "freifunk"
 KEYNOTE = "keynote"
@@ -140,14 +135,13 @@ VUVUZELA = "vuvuzela"
 CHIPWHISPERER = "chipwhisperer"
 GLITCHKIT = "glitchkit"
 FACEDANCER = "facedancer"
-HACKRF = "hackrf"
+HACKRF = "sdr"
 PROXMARK = "proxmark"
 UBERTOOTH = "ubertooth"
 
-SHODAN = "shodan"
-
 ANDROID = "android"
-IOS = "ios"
+IOS = "apple ios"
+CISCO_IOS = "Cisco IOS"
 JTAG = "jtag"
 FPGA = "fpga"
 EEPROM = "eeprom"
@@ -160,9 +154,9 @@ METHODISCH_INKORREKT = "methodisch inkorrekt"  # TODO
 ULTIMATE_TALK = "ultimate talks"
 INFRASTRUCTURE_REV = "infrastructure review" # TODO
 
-regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
-           r"\Wmifare\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
-           r"\Whitag\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
+regexes = {r"\Wrfid\W": [RFID],
+           r"\Wmifare\W": [RFID],
+           r"\Whitag\W": [RFID],
            r"\Wgeheimdienste?\W": [BIGBROTHER, POLITICS],
            r"\Wgchq?\W": [BIGBROTHER, POLITICS],
            r"\Wnsa?\W": [BIGBROTHER, POLITICS],
@@ -170,7 +164,7 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Wlulzsec\W": [ACTIVISM],
            r"\Warab spring\W": [POLITICS, ACTIVISM],
            r"\Wedward snowden\W": [POLITICS, ACTIVISM, PRIVACY],
-           r"\Wtor\W": [NETWORK, PRIVACY, TOR, CRYPTO],
+           r"\Wtor\W": [NETWORK, PRIVACY, CRYPTO],
            r"\Wdragnet surveillance system\W": [NETWORK, PRIVACY, BIGBROTHER, SURVEILLANCE],
            r"\Wquantenphysik\W": [SCIENCE],
            r"\Wrelativitätstheorie\W": [SCIENCE],
@@ -209,8 +203,8 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Wbgp\W": [NETWORK],
            r"\Wandroid\W": [MOBILE],
            r"\Wboot ?loader\W": [SOFTWARE],
-           r"\Wida\W": [SOFTWARE, SECURITY, ASSEMBLER],
-           r"\Wassembler\W": [SOFTWARE, ASSEMBLER],
+           r"\Wida\W": [SOFTWARE, SECURITY],
+           r"\Wassembler\W": [SOFTWARE],
            r"\Wamendment\W": [LAW],
            r"\Wreaper drone\W": [POLITICS, AVIATION],
            r"\Wmri\W": [BIO],
@@ -294,7 +288,7 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Wbotnet\W": [MALWARE],
            r"\Wmalware\W": [MALWARE],
            r"\Wtrojaner\W": [MALWARE],
-           r"\Wcompiler\W": [SOFTWARE, ASSEMBLER],
+           r"\Wcompiler\W": [SOFTWARE],
            r"\Wmicrocontroller\W": [HARDWARE],
            r"\Wlogjam\W": [CRYPTO],
            r"\Wdiffie-hellman\W": [CRYPTO],
@@ -311,7 +305,7 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Wprofiling\W": [PRIVACY],
            r"\Wdprk\W": [POLITICS],
            r"\Wnsaua\W": [POLITICS],
-           r"\Wfreifunk\W": [NETWORK, WIFI, ACTIVISM, FREIFUNK, RESILIENCE],
+           r"\Wfreifunk\W": [ACTIVISM, FREIFUNK, RESILIENCE],
            r"\Wgeflüchtete\W": [POLITICS, ACTIVISM],
            r"\Wlandesverrat\W": [POLITICS, ACTIVISM],
            r"\Wbig brother\W": [POLITICS, BIGBROTHER],
@@ -352,9 +346,9 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Weeprom\W": [EEPROM, ELECTRONICS],
            r"\Wfpgas?\W": [FPGA, ELECTRONICS],
            r"\Wfuzzing\W": [FUZZING, SECURITY, SOFTWARE, TESTING],
-           r"\Wasan\W": [ASAN, SECURITY, SOFTWARE],
-           r"\Wafl\W": [FUZZING, SECURITY, SOFTWARE, AFL, TESTING],
-           r"\Wlibfuzzer\W": [FUZZING, SECURITY, SOFTWARE, LIBFUZZER, TESTING],
+           r"\Wasan\W": [SECURITY, SOFTWARE],
+           r"\Wafl\W": [FUZZING, SECURITY, SOFTWARE, TESTING],
+           r"\Wlibfuzzer\W": [FUZZING, SECURITY, SOFTWARE, TESTING],
            r"\Wparticle accelerators?\W": [SCIENCE],
            r"\Wembedded systems?\W": [IOT],
            r"\Wgpio\W": [IOT],
@@ -391,11 +385,11 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Wdocker\W": [CONTAINER],
            r"\Wansible\W": [CONTAINER],
            r"\Wvagrant\W": [CONTAINER],
-           r"\Wapache\W": [WEB, SERVER, NETWORK, WEBSERVER],
-           r"\Wnginx\W": [WEB, SERVER, NETWORK, WEBSERVER],
-           r"\Whttp/2\.0\W": [WEB,  NETWORK],
-           r"\Whttp header\.0\W": [WEB,  NETWORK],
-           r"\Wrest\W": [WEB,  NETWORK],
+           r"\Wapache\W": [WEB],
+           r"\Wnginx\W": [WEB],
+           r"\Whttp/2\.0\W": [WEB],
+           r"\Whttp header\.0\W": [WEB],
+           r"\Wrest\W": [WEB, API],
            r"\Wpgp\W": [CRYPTO, PRIVACY],
            r"\Wbrowsersecurity\W": [WEB, BROWSER, SECURITY],
            r"\Wbrowser security\W": [WEB, BROWSER, SECURITY],
@@ -404,7 +398,7 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\W802.11\W": [NETWORK, WIFI],
            r"\Wmidi\W": [ART, HARDWARE],
            r"\Wtheater\W": [ART],
-           r"\Wios\W": [OS, IOS, APPLE],
+           r"\Wapple ios\W": [IOS],
            r"\Wspace\W": [SPACE, SCIENCE],
            r"\Winterplanetary\W": [SPACE, SCIENCE],
            r"\Wmethodisch inkorrekt\W": [SCIENCE],
@@ -416,7 +410,7 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Wipv6\W": [NETWORK],
            r"\Wraspberry pi\W": [HARDWARE],
            r"\Wsmart ?home\W": [SMARTHOME, IOT],
-           r"\Warduino\W": [IOT, SOFTWARE, HARDWARE, DIY, ELECTRONICS],
+           r"\Warduino\W": [IOT, DIY, ELECTRONICS],
            r"\Wsamba4?\W": [NETWORK],
            r"\Wsql\W": [DATABASE],
            r"\Wmysql\W": [DATABASE],
@@ -441,12 +435,12 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Wpodcast\W": [PODCAST],
            r"\Wpodlove\W": [PODCAST],
            r"\Wkeysigning\W": [CRYPTO, PRIVACY],
-           r"\Wwebserver\W": [WEB, WEBSERVER],
+           r"\Wwebserver\W": [WEB],
            r"\Wdatabase\W": [DATABASE],
-           r"\Wlamp\W": [DATABASE, WEBSERVER, WEB],
+           r"\Wlamp\W": [DATABASE, WEB],
            r"\Wddos\W": [NETWORK, SECURITY],
-           r"\Whoneypots?\W": [SECURITY, HONEYPOT],
-           r"\Wcuckoo sandbox\W": [SECURITY, HONEYPOT],
+           r"\Whoneypots?\W": [SECURITY],
+           r"\Wcuckoo sandbox\W": [SECURITY],
            r"\Wunit testing\W": [TESTING],
            r"\Wterraforming\W": [SCIENCE],
            r"\Whydroponics\W": [SCIENCE],
@@ -483,7 +477,7 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Wretrospektive\W": [ENGINEERING],
            r"\Wbioinformatik\W": [SCIENCE, BIO, SOFTWARE],
            r"\Wctf\W": [SECURITY],
-           r"\Wimagemagick\W": [GRAPHICS, IMAGEMAGICK],
+           r"\Wimagemagick\W": [GRAPHICS],
            r"\Wamnesty international\W": [ACTIVISM, POLITICS],
            r"\Wwahl\W": [POLITICS],
            r"\Wwahlen\W": [POLITICS],
@@ -510,7 +504,7 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Wlernen\W": [EDUCATION],
            r"\Wbildung\W": [EDUCATION],
            r"\Wopening\W": [OPENING],
-           r"\Wwordpress\W": [WORDPRESS],
+           r"\Wwordpress\W": [WEB],
            r"\Wwiki\W": [WIKI],
            r"\Wwikipedia\W": [WIKI],
            r"\Wfree software\W": [OPENSOURCE],
@@ -527,7 +521,7 @@ regexes = {r"\Wrfid\W": [RFID, ELECTRONICS, WIRELESS, HARDWARE],
            r"\Wgit\W": [ENGINEERING],
            r"\Wbrainfuck\W": [SOFTWARE],
            r"\Walgorithmic\W": [ALGORITHMS, SOFTWARE],
-           r"\trojan\W": [MALWARE],
+           r"\Wtrojan\W": [MALWARE],
 
 
 
@@ -566,7 +560,7 @@ default_talks = [{
         "congress": "34c3",
         "id": "8941",
         "language": "English",
-        "tags": [CONSOLE, HACKING, NINTENDO, SECURITY, ARM, OS, KERNEL, ASSEMBLER],
+        "tags": [CONSOLE, HACKING, NINTENDO, SECURITY, ARM, OS, KERNEL],
         "series": None,
         },
         {
@@ -647,7 +641,7 @@ default_talks = [{
         "congress": "sha2017",
         "id": "148",
         "language": "English",
-        "tags": [SECURITY, FUZZING, ASAN, AFL, LIBFUZZER],
+        "tags": [SECURITY, FUZZING],
         "series": None,
         },
         {
@@ -720,7 +714,7 @@ default_talks = [{
         "congress": "34c3",
         "id": "8762",
         "language": "English",
-        "tags": [HARDWARE, SECURITY, HACKING, OS, USB, JTAG, ASSEMBLER],
+        "tags": [HARDWARE, SECURITY, HACKING, OS, USB, JTAG],
         "series": None,
         },
         {
@@ -828,7 +822,7 @@ default_talks = [{
         "congress": "34c3",
         "id": "9104",
         "language": "English",
-        "tags": [CRYPTO, I2P, FREENET, GNUNET, JONDONYM, TOR, LOOPIX, VUVUZELA, NETWORK],
+        "tags": [CRYPTO, I2P, FREENET, GNUNET, JONDONYM, LOOPIX, VUVUZELA, NETWORK],
         "series": None,
         },
         {
@@ -1257,6 +1251,7 @@ def from_frabs():
         except xml.etree.ElementTree.ParseError:
             print("Error: Broken file {}".format(filename))
         else:
+            year = e.find('conference').find('start').text.split('-')[0]
             for days in e.findall('day'):
                 for rooms in days.findall("room"):
                     for event in rooms.findall("event"):
@@ -1268,13 +1263,15 @@ def from_frabs():
                         e["id"] = event.attrib["id"]
                         e["title"] = event.find("title").text
                         e["subtitle"] = event.find("subtitle").text
-                        e["abstract"] = event.find("abstract").text
-                        e["description"] = event.find("description").text
+                        e["track"] = event.find("track").text
                         try:
                             e["slug"] = event.find("slug").text
                         except AttributeError:
                             e["slug"] = None
-                        e["tags"] = text_to_tags("{title} {subtitle} {abstract} {description}".format(**e))
+                        e["acronym"] = acronym
+                        e["tags"] = [acronym, e["id"]] + text_to_tags("{title} {subtitle} {abstract} {description}".format(
+                            title=e["title"], subtitle=e["subtitle"], abstract=event.find("abstract").text, description=event.find("description").text
+                        )) + [year]
 
                         e["acronym"] = acronym
                         if e["guid"]:
